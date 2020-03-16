@@ -44,5 +44,5 @@ Or alternatively, add MANGOHUD=1 to your shell profile (Vulkan only).
 
 %files
 %doc README.md bin/%{oname}.conf LICENSE
-%{_datadir}/vulkan/implicit_layer.d/%{name}.json
-%{_libdir}/lib%{oname}.so
+#{_datadir}/vulkan/implicit_layer.d/%{name}.json
+#{_libdir}/lib%{oname}.so
