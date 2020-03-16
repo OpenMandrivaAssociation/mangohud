@@ -19,6 +19,11 @@ BuildRequires: pkgconfig(vulkan)
 BuildRequires: pkgconfig(x11)
 BuildRequires: python3dist(mako)
 
+Requires: vulkan-loader
+Requires: %{_lib}vulkan1
+
+Provides: bundled(ImGui) = 0.13.03.2020
+
 %description
 A Vulkan and OpenGL overlay layer for monitoring FPS, temperatures, CPU/GPU load and more.
 A modification of the Mesa Vulkan overlay. Including GUI improvements, temperature reporting, and logging capabilities.
@@ -43,6 +48,7 @@ Or alternatively, add MANGOHUD=1 to your shell profile (Vulkan only).
 %meson_install
 
 %files
-%doc README.md bin/%{oname}.conf LICENSE
-#{_datadir}/vulkan/implicit_layer.d/%{name}.json
-#{_libdir}/lib%{oname}.so
+%doc README.md bin/%{oname}.conf LICENSE MangoHud.conf.example
+%{_bindir}/mangohud
+%{_libdir}/mangohud/lib%{oname}.so
+%{_datadir}/vulkan/implicit_layer.d/%{oname}.*.json
