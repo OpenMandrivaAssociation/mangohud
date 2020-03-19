@@ -10,7 +10,7 @@ URL:            https://github.com/flightlessmango/MangoHud
 # Use tarball .xz only because in basic .tar.gz archive and in source code .tar.gz not all files available (missing submodules)
 #Source0:        https://github.com/flightlessmango/MangoHud/releases/download/v%{version}/%{oname}-src-v%{version}.tar.xz
 # Tarball not available with this release, so use source tar.gz and submodules.
-Source0:        %{oname}-{version}.tar.lz
+Source0:        %{oname}-%{version}.tar.lz
 
 BuildRequires: meson
 BuildRequires: glslang
