@@ -10,7 +10,7 @@ URL:            https://github.com/flightlessmango/MangoHud
 # Use tarball .xz only because in basic .tar.gz archive and in source code .tar.gz not all files available (missing submodules)
 #Source0:        https://github.com/flightlessmango/MangoHud/releases/download/v%{version}/%{oname}-src-v%{version}.tar.xz
 # Tarball not available with this release, so use source tar.gz and submodules.
-Source0:        https://github.com/flightlessmango/MangoHud/archive/v%{version}/%{name}-%{version}.tar.gz
+Source0:        https://github.com/flightlessmango/MangoHud/archive/v%{version}/%{oname}-%{version}.tar.gz
 # Taken from    https://github.com/flightlessmango/imgui/archive/master.zip
 Source1:        imgui-master-13.03.2020.zip
 
