@@ -42,6 +42,7 @@ Or alternatively, add MANGOHUD=1 to your shell profile (Vulkan only).
 
 %prep
 %autosetup -p1 -n %{oname}-%{version}
+%autosetup -p1 -n imgui-master
 mv imgui-master/* modules/ImGui/src/
 
 %build
