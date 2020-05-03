@@ -41,7 +41,9 @@ mangohud %command%
 Or alternatively, add MANGOHUD=1 to your shell profile (Vulkan only).
 
 %prep
-%autosetup -p1 -n %{oname}-%{version}
+#autosetup -p1 -n %{oname}-%{version}
+	
+%setup -n %{oname}-%{version} -q
 %setup -n %{oname}-%{version} -q -D -T -a1
 mv imgui-%{commit1}/* modules/ImGui/src/
 
