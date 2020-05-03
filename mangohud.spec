@@ -1,7 +1,8 @@
 %define oname   MangoHud
+%global commit1         1f02d240b38f445abb0381ade0867752d5d2bc7b
 
 Name:           mangohud
-Version:        0.3.1
+Version:        0.3.5
 Release:        1
 Summary:        A Vulkan and OpenGL overlay layer for monitoring FPS, temperatures, CPU/GPU load and more
 Group:          Games/Arcade
@@ -10,7 +11,8 @@ URL:            https://github.com/flightlessmango/MangoHud
 # Use tarball .xz only because in basic .tar.gz archive and in source code .tar.gz not all files available (missing submodules)
 #Source0:        https://github.com/flightlessmango/MangoHud/releases/download/v%{version}/%{oname}-src-v%{version}.tar.xz
 # Tarball not available with this release, so use source tar.gz and submodules.
-Source0:        %{oname}-%{version}.tar.lz
+Source0:        https://github.com/flightlessmango/MangoHud/archive/v%{version}/%{oname}-%{version}.tar.gz
+Source1:        https://github.com/flightlessmango/ImGui/archive/1f02d240b38f445abb0381ade0867752d5d2bc7b/ImGui-1f02d240b38f445abb0381ade0867752d5d2bc7b.tar.gz
 
 BuildRequires: meson
 BuildRequires: glslang
@@ -24,7 +26,7 @@ BuildRequires: python3dist(mako)
 Requires: vulkan-loader
 Requires: %{_lib}vulkan1
 
-Provides: bundled(ImGui) = 0.13.03.2020
+Provides: bundled(ImGui) = 0.20200313
 
 %description
 A Vulkan and OpenGL overlay layer for monitoring FPS, temperatures, CPU/GPU load and more.
@@ -40,6 +42,8 @@ Or alternatively, add MANGOHUD=1 to your shell profile (Vulkan only).
 
 %prep
 %autosetup -p1 -n %{oname}-%{version}
+%setup -n %{oname}-%{version} -q -D -T -a1
+mv imgui-%{commit1}/* modules/ImGui/src/
 
 %build
 
