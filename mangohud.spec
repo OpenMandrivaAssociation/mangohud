@@ -7,10 +7,8 @@ Summary:        A Vulkan and OpenGL overlay layer for monitoring FPS, temperatur
 Group:          Games/Arcade
 License:        MIT
 URL:            https://github.com/flightlessmango/MangoHud
-# Use tarball .xz only because in basic .tar.gz archive and in source code .tar.gz not all files available (missing submodules)
-#Source0:        https://github.com/flightlessmango/MangoHud/releases/download/v%{version}/%{oname}-src-v%{version}.tar.xz
-# Tarball not available with this release, so use source tar.gz and submodules.
 Source0:        https://github.com/flightlessmango/MangoHud/archive/v%{version}/%{oname}-%{version}.tar.gz
+# Submodule should be downloaded from here:
 #Source1:        https://github.com/flightlessmango/ImGui/archive/1f02d240b38f445abb0381ade0867752d5d2bc7b/ImGui-1f02d240b38f445abb0381ade0867752d5d2bc7b.tar.gz
 Source1:	imgui-20200503.tar.gz
 
@@ -63,4 +61,5 @@ mv imgui-20200503/* modules/ImGui/src/
 %doc README.md bin/%{oname}.conf LICENSE MangoHud.conf.example
 %{_bindir}/mangohud
 %{_libdir}/mangohud/lib%{oname}.so
+%{_libdir}/mangohud/lib%{oname}_dlsym.so
 %{_datadir}/vulkan/implicit_layer.d/%{oname}.*.json
