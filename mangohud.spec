@@ -17,6 +17,7 @@ Source1:	imgui-20200503.tar.gz
 BuildRequires: meson
 BuildRequires: glslang
 BuildRequires: glslang-devel
+BuildRequires: pkgconfig(dbus-1)
 BuildRequires: pkgconfig(gl)
 BuildRequires: pkgconfig(dri)
 BuildRequires: pkgconfig(vulkan)
