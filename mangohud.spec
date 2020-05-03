@@ -14,6 +14,7 @@ Source0:        https://github.com/flightlessmango/MangoHud/archive/v%{version}/
 #Source1:        https://github.com/flightlessmango/ImGui/archive/1f02d240b38f445abb0381ade0867752d5d2bc7b/ImGui-1f02d240b38f445abb0381ade0867752d5d2bc7b.tar.gz
 Source1:	imgui-20200503.tar.gz
 
+BuildRequires: cmake
 BuildRequires: meson
 BuildRequires: glslang
 BuildRequires: glslang-devel
