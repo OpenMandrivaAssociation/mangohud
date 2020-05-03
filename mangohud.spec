@@ -19,7 +19,7 @@ BuildRequires: meson
 BuildRequires: glslang
 BuildRequires: glslang-devel
 #FIXME
-BuildRequires: %{lib}XNVCtrl-devel
+BuildRequires: %{_lib}XNVCtrl-devel
 BuildRequires: pkgconfig(dbus-1)
 BuildRequires: pkgconfig(gl)
 BuildRequires: pkgconfig(dri)
