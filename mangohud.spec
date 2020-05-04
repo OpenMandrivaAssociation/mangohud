@@ -2,7 +2,7 @@
 
 Name:           mangohud
 Version:        0.3.5
-Release:        1
+Release:        2
 Summary:        A Vulkan and OpenGL overlay layer for monitoring FPS, temperatures, CPU/GPU load and more
 Group:          Games/Arcade
 License:        MIT
@@ -59,7 +59,11 @@ mv imgui-20200503/* modules/ImGui/src/
 
 %files
 %doc README.md bin/%{oname}.conf LICENSE MangoHud.conf.example
+%ifnarch %{ix86} %{arm}
 %{_bindir}/mangohud
+%else
+%{_bindir}/mangohud.x86
+%endif
 %{_libdir}/mangohud/lib%{oname}.so
 %{_libdir}/mangohud/lib%{oname}_dlsym.so
 %{_datadir}/vulkan/implicit_layer.d/%{oname}.*.json
