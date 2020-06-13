@@ -1,8 +1,8 @@
 %define oname   MangoHud
 
 Name:           mangohud
-Version:        0.3.5
-Release:        2
+Version:        0.4.1
+Release:        1
 Summary:        A Vulkan and OpenGL overlay layer for monitoring FPS, temperatures, CPU/GPU load and more
 Group:          Games/Arcade
 License:        MIT
