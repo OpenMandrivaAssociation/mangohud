@@ -61,6 +61,7 @@ Or alternatively, add MANGOHUD=1 to your shell profile (Vulkan only).
 
 %files
 %doc README.md bin/%{oname}.conf LICENSE
+%{_datadir}/doc/mangohud/MangoHud.conf.example
 %ifnarch %{ix86} %{arm}
 %{_bindir}/mangohud
 %else
@@ -68,4 +69,5 @@ Or alternatively, add MANGOHUD=1 to your shell profile (Vulkan only).
 %endif
 %{_libdir}/mangohud/lib%{oname}.so
 %{_libdir}/mangohud/lib%{oname}_dlsym.so
-#{_datadir}/vulkan/implicit_layer.d/%{oname}.*.json
+%{_datadir}//vulkan/implicit_layer.d/MangoHud.json
+%{_mandir}/man1/mangohud.1.*
