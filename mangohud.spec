@@ -60,7 +60,7 @@ Or alternatively, add MANGOHUD=1 to your shell profile (Vulkan only).
 %meson_install
 
 %files
-%doc README.md bin/%{oname}.conf LICENSE MangoHud.conf.example
+%doc README.md bin/%{oname}.conf LICENSE
 %ifnarch %{ix86} %{arm}
 %{_bindir}/mangohud
 %else
