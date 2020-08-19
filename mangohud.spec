@@ -68,4 +68,4 @@ Or alternatively, add MANGOHUD=1 to your shell profile (Vulkan only).
 %endif
 %{_libdir}/mangohud/lib%{oname}.so
 %{_libdir}/mangohud/lib%{oname}_dlsym.so
-%{_datadir}/vulkan/implicit_layer.d/%{oname}.*.json
+#{_datadir}/vulkan/implicit_layer.d/%{oname}.*.json
