@@ -1,7 +1,7 @@
 %define oname   MangoHud
 
 Name:           mangohud
-Version:        0.4.1
+Version:        0.5.1
 Release:        1
 Summary:        A Vulkan and OpenGL overlay layer for monitoring FPS, temperatures, CPU/GPU load and more
 Group:          Games/Arcade
@@ -10,9 +10,8 @@ URL:            https://github.com/flightlessmango/MangoHud
 Source0:        https://github.com/flightlessmango/MangoHud/archive/v%{version}/%{oname}-%{version}.tar.gz
 # Submodule should be downloaded from here:
 #Source1:        https://github.com/flightlessmango/ImGui/archive/1f02d240b38f445abb0381ade0867752d5d2bc7b/ImGui-1f02d240b38f445abb0381ade0867752d5d2bc7b.tar.gz
-Source1:	imgui-20200503.tar.gz
- # https://github.com/flightlessmango/MangoHud/pull/208
-Patch0:         0001-Fix-Wformat-security-warning-with-GCC-10.1.patch
+#Source1:	imgui-20200503.tar.gz
+
 
 BuildRequires: cmake
 BuildRequires: meson
@@ -49,8 +48,8 @@ Or alternatively, add MANGOHUD=1 to your shell profile (Vulkan only).
 	
 %setup -n %{oname}-%{version} -q
 %setup -n %{oname}-%{version} -q -D -T -a1
-%patch -p1
-mv imgui-20200503/* modules/ImGui/src/
+#patch -p1
+#mv imgui-20200503/* modules/ImGui/src/
 
 %build
 
