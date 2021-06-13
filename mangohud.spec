@@ -51,7 +51,12 @@ Or alternatively, add MANGOHUD=1 to your shell profile (Vulkan only).
 
 %build
 
-%meson -Duse_system_vulkan=enabled
+%meson \
+	-Duse_system_vulkan=enabled \
+	-Dwith_x11=enabled \
+	-Dwith_wayland=enabled \
+	-Dwith_dlsym=enabled
+	
 %meson_build
 
 %install
