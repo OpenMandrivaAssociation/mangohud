@@ -25,11 +25,12 @@ BuildRequires: pkgconfig(dri)
 BuildRequires: pkgconfig(vulkan)
 BuildRequires: pkgconfig(x11)
 BuildRequires: python3dist(mako)
+BuildRequires: imgui-devel
 
 Requires: vulkan-loader
 Requires: %{_lib}vulkan1
 
-Provides: bundled(ImGui) = 0.20200313
+#Provides: bundled(ImGui) = 0.20200313
 
 %description
 A Vulkan and OpenGL overlay layer for monitoring FPS, temperatures, CPU/GPU load and more.
