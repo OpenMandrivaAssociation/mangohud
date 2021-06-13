@@ -7,10 +7,7 @@ Summary:        A Vulkan and OpenGL overlay layer for monitoring FPS, temperatur
 Group:          Games/Arcade
 License:        MIT
 URL:            https://github.com/flightlessmango/MangoHud
-Source0:        https://github.com/flightlessmango/MangoHud/archive/v%{version}/%{oname}-%{version}.tar.gz
-# Submodule should be downloaded from here:
-#Source1:        https://github.com/flightlessmango/ImGui/archive/1f02d240b38f445abb0381ade0867752d5d2bc7b/ImGui-1f02d240b38f445abb0381ade0867752d5d2bc7b.tar.gz
-#Source1:	imgui-20200503.tar.gz
+Source0:        https://github.com/flightlessmango/MangoHud/releases/download/v%{version}/%{oname}-v%{version}-Source.tar.xz
 
 
 BuildRequires: cmake
@@ -23,6 +20,7 @@ BuildRequires: pkgconfig(dbus-1)
 BuildRequires: pkgconfig(gl)
 BuildRequires: pkgconfig(dri)
 BuildRequires: pkgconfig(vulkan)
+BuildRequires: pkgconfig(wayland-client)
 BuildRequires: pkgconfig(x11)
 BuildRequires: python3dist(mako)
 
@@ -46,7 +44,7 @@ Or alternatively, add MANGOHUD=1 to your shell profile (Vulkan only).
 %prep
 #autosetup -p1 -n %{oname}-%{version}
 	
-%setup -n %{oname}-%{version} -q
+%setup -n %{oname}-v%{version}-Source -q
 #setup -n %{oname}-%{version} -q -D -T -a1
 #patch -p1
 #mv imgui-20200503/* modules/ImGui/src/
