@@ -50,7 +50,8 @@ Or alternatively, add MANGOHUD=1 to your shell profile (Vulkan only).
 #mv imgui-20200503/* modules/ImGui/src/
 
 %build
-
+export CC=gcc
+export CXX=g++
 %meson \
 	-Duse_system_vulkan=enabled \
 	-Dwith_x11=enabled \
