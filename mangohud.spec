@@ -1,7 +1,7 @@
 %define oname   MangoHud
 
 Name:           mangohud
-Version:        0.6.4
+Version:        0.6.5
 Release:        1
 Summary:        A Vulkan and OpenGL overlay layer for monitoring FPS, temperatures, CPU/GPU load and more
 Group:          Games/Arcade
@@ -50,11 +50,12 @@ Or alternatively, add MANGOHUD=1 to your shell profile (Vulkan only).
 #mv imgui-20200503/* modules/ImGui/src/
 
 %build
-
 %meson \
 	-Duse_system_vulkan=enabled \
 	-Dwith_x11=enabled \
 	-Dwith_wayland=enabled
+# error duplicate symbol dlsym if compiled with enabled	
+#	-Dwith_dlsym=enabled
 	
 %meson_build
 
