@@ -50,13 +50,12 @@ Or alternatively, add MANGOHUD=1 to your shell profile (Vulkan only).
 #mv imgui-20200503/* modules/ImGui/src/
 
 %build
-export CC=gcc
-export CXX=g++
 %meson \
 	-Duse_system_vulkan=enabled \
 	-Dwith_x11=enabled \
-	-Dwith_wayland=enabled \
-	-Dwith_dlsym=enabled
+	-Dwith_wayland=enabled
+# error duplicate symbol dlsym if compiled with enabled	
+#	-Dwith_dlsym=enabled
 	
 %meson_build
 
