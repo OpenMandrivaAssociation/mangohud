@@ -42,7 +42,7 @@ mangohud %command%
 Or alternatively, add MANGOHUD=1 to your shell profile (Vulkan only).
 
 %prep	
-%setup -n %{oname}-v0.6.6-1 -q
+%setup -n %{oname}-v0.6.6 -q
 #setup -n %{oname}-%{version} -q -D -T -a1
 #patch -p1
 #mv imgui-20200503/* modules/ImGui/src/
