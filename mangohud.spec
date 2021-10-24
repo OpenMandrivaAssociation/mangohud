@@ -1,13 +1,13 @@
 %define oname   MangoHud
 
 Name:           mangohud
-Version:        0.6.6-1
+Version:        0.6.6.1
 Release:        1
 Summary:        A Vulkan and OpenGL overlay layer for monitoring FPS, temperatures, CPU/GPU load and more
 Group:          Games/Arcade
 License:        MIT
 URL:            https://github.com/flightlessmango/MangoHud
-Source0:        https://github.com/flightlessmango/MangoHud/releases/download/v%{version}/%{oname}-v%{version}-Source.tar.xz
+Source0:        https://github.com/flightlessmango/MangoHud/releases/download/v%{version}/%{oname}-v0.6.6-1-Source.tar.xz
 
 
 BuildRequires: cmake
@@ -42,7 +42,7 @@ mangohud %command%
 Or alternatively, add MANGOHUD=1 to your shell profile (Vulkan only).
 
 %prep
-#autosetup -p1 -n %{oname}-%{version}
+#autosetup -p1 -n %{oname}-0.6.6-1
 	
 %setup -n %{oname}-v%{version} -q
 #setup -n %{oname}-%{version} -q -D -T -a1
