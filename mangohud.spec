@@ -4,7 +4,7 @@ Name:           mangohud
 Version:        0.6.7
 Release:        1
 Summary:        A Vulkan and OpenGL overlay layer for monitoring FPS, temperatures, CPU/GPU load and more
-Group:          Games/Arcade
+Group:          Tools/Monitiring/Overlay
 License:        MIT
 URL:            https://github.com/flightlessmango/MangoHud
 Source0:        https://github.com/flightlessmango/MangoHud/releases/download/v%{version}/%{oname}-v%{version}-Source.tar.xz
@@ -66,5 +66,5 @@ Or alternatively, add MANGOHUD=1 to your shell profile (Vulkan only).
 %{_bindir}/mangohud
 %{_libdir}/mangohud/lib%{oname}.so
 %{_libdir}/mangohud/lib%{oname}_dlsym.so
-%{_datadir}//vulkan/implicit_layer.d/MangoHud.json
+%{_datadir}/vulkan/implicit_layer.d/*
 %{_mandir}/man1/mangohud.1.*
