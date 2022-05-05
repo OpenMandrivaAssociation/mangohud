@@ -16,7 +16,10 @@ URL:            https://github.com/flightlessmango/MangoHud
 Source0:        https://github.com/flightlessmango/MangoHud/releases/download/v%{version}/%{oname}-v%{version}-Source.tar.xz
 
 %if %{with compat32}
-# br
+BuildRequires:	devel(libX11)
+BuildRequires:	devel(libGL)
+BuildRequires:	devel(libwayland-client)
+BuildRequires:	devel(libwayland-server)
 %endif
 
 BuildRequires: cmake
