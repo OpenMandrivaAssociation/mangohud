@@ -19,6 +19,8 @@ Source0:        https://github.com/flightlessmango/MangoHud/releases/download/v%
 BuildRequires:	devel(libGLX_mesa)
 BuildRequires:	devel(libGL)
 BuildRequires:	devel(libxcb)
+BuildRequires:	devel(libXau)
+BuildRequires:	devel(libXdmcp)
 BuildRequires:	devel(libX11)
 BuildRequires:	devel(libwayland-client)
 BuildRequires:	devel(libwayland-server)
