@@ -16,6 +16,7 @@ URL:            https://github.com/flightlessmango/MangoHud
 Source0:        https://github.com/flightlessmango/MangoHud/releases/download/v%{version}/%{oname}-v%{version}-Source.tar.xz
 
 %if %{with compat32}
+BuildRequires:	devel(libdbus-1)
 BuildRequires:	devel(libGLX_mesa)
 BuildRequires:	devel(libffi)
 BuildRequires:	devel(libGL)
