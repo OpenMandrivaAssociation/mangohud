@@ -17,6 +17,7 @@ Source0:        https://github.com/flightlessmango/MangoHud/releases/download/v%
 
 %if %{with compat32}
 BuildRequires:	devel(libGLX_mesa)
+BuildRequires:	devel(libffi)
 BuildRequires:	devel(libGL)
 BuildRequires:	devel(libxcb)
 BuildRequires:	devel(libXau)
