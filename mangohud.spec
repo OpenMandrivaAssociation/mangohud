@@ -98,8 +98,11 @@ Or alternatively, add MANGOHUD=1 to your shell profile (Vulkan only).
 %files
 %doc README.md bin/%{oname}.conf LICENSE
 %{_datadir}/doc/mangohud/MangoHud.conf.example
-%{_bindir}/mangohud
+#{_bindir}/mangohud
 %{_libdir}/mangohud/lib%{oname}.so
 %{_libdir}/mangohud/lib%{oname}_dlsym.so
-%{_datadir}/vulkan/implicit_layer.d/*
+#{_datadir}/vulkan/implicit_layer.d/*
 %{_mandir}/man1/mangohud.1.*
+
+#lib/mangohud/libMangoHud.so
+#/usr/lib/mangohud/libMangoHud_dlsym.so
