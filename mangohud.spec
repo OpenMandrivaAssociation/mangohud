@@ -1,3 +1,9 @@
+%ifarch %{x86_64}
+%bcond_without compat32
+%else
+%bcond_with compat32
+%endif
+
 %define oname   MangoHud
 
 Name:           mangohud
@@ -9,6 +15,9 @@ License:        MIT
 URL:            https://github.com/flightlessmango/MangoHud
 Source0:        https://github.com/flightlessmango/MangoHud/releases/download/v%{version}/%{oname}-v%{version}-Source.tar.xz
 
+%if %{with compat32}
+# br
+%endif
 
 BuildRequires: cmake
 BuildRequires: meson
@@ -48,16 +57,32 @@ Or alternatively, add MANGOHUD=1 to your shell profile (Vulkan only).
 #mv imgui-20200503/* modules/ImGui/src/
 
 %build
+%if %{with compat32}
+
+%meson32 \
+	-Duse_system_vulkan=enabled \
+	-Dwith_x11=enabled \
+	-Dwith_wayland=enabled
+%endif
+
+
 %meson \
 	-Duse_system_vulkan=enabled \
 	-Dwith_x11=enabled \
 	-Dwith_wayland=enabled
 # error duplicate symbol dlsym if compiled with enabled	
 #	-Dwith_dlsym=enabled
-	
+
+%if %{with compat32}
+%ninja_build -C build32
+%endif
+
 %meson_build
 
 %install
+%if %{with compat32}
+%ninja_install -C build32
+%endif
 %meson_install
 
 %files
