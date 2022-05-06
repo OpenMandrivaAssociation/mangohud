@@ -4,6 +4,8 @@
 %bcond_with compat32
 %endif
 
+%define lib32name libmangohud
+
 %define oname   MangoHud
 
 Name:           mangohud
@@ -45,7 +47,7 @@ BuildRequires: python3dist(mako)
 
 Requires: vulkan-loader
 Requires: %{_lib}vulkan1
-
+Recommends: %{lib32name}  = %{EVRD}
 Provides: bundled(ImGui) = 0.20200313
 
 %description
@@ -59,6 +61,13 @@ mangohud.x86 /path/to/app for 32bit OpenGL
 For Steam games, you can add this as a launch option:
 mangohud %command%
 Or alternatively, add MANGOHUD=1 to your shell profile (Vulkan only).
+
+%if %{with compat32}
+%package -n %{lib32name}
+Summary:	Shared library for %{name} (32-bit)
+Group:		System/Libraries
+Requires:	libvulkan1
+%endif
 
 %prep	
 %setup -n %{oname}-v%{version} -q
@@ -98,11 +107,14 @@ Or alternatively, add MANGOHUD=1 to your shell profile (Vulkan only).
 %files
 %doc README.md bin/%{oname}.conf LICENSE
 %{_datadir}/doc/mangohud/MangoHud.conf.example
-#{_bindir}/mangohud
+%{_bindir}/mangohud
 %{_libdir}/mangohud/lib%{oname}.so
 %{_libdir}/mangohud/lib%{oname}_dlsym.so
-#{_datadir}/vulkan/implicit_layer.d/*
+%{_datadir}/vulkan/implicit_layer.d/*
 %{_mandir}/man1/mangohud.1.*
 
-#lib/mangohud/libMangoHud.so
-#/usr/lib/mangohud/libMangoHud_dlsym.so
+%if %{with compat32}
+%files -n %{lib32name}
+%{_prefix}/lib/mangohud/libMangoHud.so
+%{_prefix}/lib/mangohud/libMangoHud_dlsym.so
+%endif
