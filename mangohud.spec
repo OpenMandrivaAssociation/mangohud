@@ -67,6 +67,9 @@ Or alternatively, add MANGOHUD=1 to your shell profile (Vulkan only).
 Summary:	Shared library for %{name} (32-bit)
 Group:		System/Libraries
 Requires:	libvulkan1
+
+%description -n %{lib32name}
+32-bit Vulkan and OpenGL overlay layer for monitoring FPS, temperatures, CPU/GPU load and more.
 %endif
 
 %prep	
