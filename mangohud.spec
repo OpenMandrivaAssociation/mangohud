@@ -109,7 +109,7 @@ Requires:	libvulkan1
 %meson_install
 
 %files
-%doc README.md bin/%{oname}.conf LICENSE
+%doc README.md LICENSE
 #{_datadir}/doc/mangohud/MangoHud.conf.example
 %{_bindir}/mangohud
 %{_libdir}/mangohud/lib%{oname}.so
