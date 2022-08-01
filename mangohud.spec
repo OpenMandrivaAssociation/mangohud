@@ -1,7 +1,15 @@
+%ifarch %{x86_64}
+%bcond_without compat32
+%else
+%bcond_with compat32
+%endif
+
+%define lib32name libmangohud
+
 %define oname   MangoHud
 
 Name:           mangohud
-Version:        0.6.7
+Version:        0.6.8
 Release:        1
 Summary:        A Vulkan and OpenGL overlay layer for monitoring FPS, temperatures, CPU/GPU load and more
 Group:          Tools/Monitiring/Overlay
@@ -9,7 +17,21 @@ License:        MIT
 URL:            https://github.com/flightlessmango/MangoHud
 Source0:        https://github.com/flightlessmango/MangoHud/releases/download/v%{version}/%{oname}-v%{version}-Source.tar.xz
 
+%if %{with compat32}
+BuildRequires:	devel(libdbus-1)
+BuildRequires:	devel(libGLX_mesa)
+BuildRequires:	devel(libffi)
+BuildRequires:	devel(libGL)
+BuildRequires:	devel(libxcb)
+BuildRequires:	devel(libXau)
+BuildRequires:	devel(libXdmcp)
+BuildRequires:	devel(libX11)
+BuildRequires:	devel(libwayland-client)
+BuildRequires:	devel(libwayland-server)
+BuildRequires:	devel(libvulkan)
+%endif
 
+BuildRequires: appstream
 BuildRequires: cmake
 BuildRequires: meson
 BuildRequires: glslang
@@ -26,7 +48,7 @@ BuildRequires: python3dist(mako)
 
 Requires: vulkan-loader
 Requires: %{_lib}vulkan1
-
+Recommends: %{lib32name}  = %{EVRD}
 Provides: bundled(ImGui) = 0.20200313
 
 %description
@@ -41,6 +63,16 @@ For Steam games, you can add this as a launch option:
 mangohud %command%
 Or alternatively, add MANGOHUD=1 to your shell profile (Vulkan only).
 
+%if %{with compat32}
+%package -n %{lib32name}
+Summary:	Shared library for %{name} (32-bit)
+Group:		System/Libraries
+Requires:	libvulkan1
+
+%description -n %{lib32name}
+32-bit Vulkan and OpenGL overlay layer for monitoring FPS, temperatures, CPU/GPU load and more.
+%endif
+
 %prep	
 %setup -n %{oname}-v%{version} -q
 #setup -n %{oname}-%{version} -q -D -T -a1
@@ -48,23 +80,47 @@ Or alternatively, add MANGOHUD=1 to your shell profile (Vulkan only).
 #mv imgui-20200503/* modules/ImGui/src/
 
 %build
+%if %{with compat32}
+
+%meson32 \
+	-Duse_system_vulkan=enabled \
+	-Dwith_x11=enabled \
+	-Dwith_wayland=enabled
+%endif
+
+
 %meson \
 	-Duse_system_vulkan=enabled \
 	-Dwith_x11=enabled \
 	-Dwith_wayland=enabled
 # error duplicate symbol dlsym if compiled with enabled	
 #	-Dwith_dlsym=enabled
-	
+
+%if %{with compat32}
+%ninja_build -C build32
+%endif
+
 %meson_build
 
 %install
+%if %{with compat32}
+%ninja_install -C build32
+%endif
 %meson_install
 
 %files
-%doc README.md bin/%{oname}.conf LICENSE
+%doc README.md LICENSE
 %{_datadir}/doc/mangohud/MangoHud.conf.example
 %{_bindir}/mangohud
 %{_libdir}/mangohud/lib%{oname}.so
 %{_libdir}/mangohud/lib%{oname}_dlsym.so
 %{_datadir}/vulkan/implicit_layer.d/*
+%{_datadir}/metainfo/io.github.flightlessmango.mangohud.metainfo.xml
 %{_mandir}/man1/mangohud.1.*
+%{_iconsdir}/hicolor/scalable/apps/io.github.flightlessmango.mangohud.svg
+
+%if %{with compat32}
+%files -n %{lib32name}
+%{_prefix}/lib/mangohud/libMangoHud.so
+%{_prefix}/lib/mangohud/libMangoHud_dlsym.so
+%endif
