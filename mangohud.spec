@@ -110,7 +110,7 @@ Requires:	libvulkan1
 
 %files
 %doc README.md bin/%{oname}.conf LICENSE
-%{_datadir}/doc/mangohud/MangoHud.conf.example
+#{_datadir}/doc/mangohud/MangoHud.conf.example
 %{_bindir}/mangohud
 %{_libdir}/mangohud/lib%{oname}.so
 %{_libdir}/mangohud/lib%{oname}_dlsym.so
