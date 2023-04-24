@@ -83,14 +83,12 @@ Requires:	libvulkan1
 %if %{with compat32}
 
 %meson32 \
-	-Duse_system_vulkan=enabled \
 	-Dwith_x11=enabled \
 	-Dwith_wayland=enabled
 %endif
 
 
 %meson \
-	-Duse_system_vulkan=enabled \
 	-Dwith_x11=enabled \
 	-Dwith_wayland=enabled
 # error duplicate symbol dlsym if compiled with enabled	
