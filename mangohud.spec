@@ -36,11 +36,13 @@ BuildRequires: cmake
 BuildRequires: meson
 BuildRequires: glslang
 BuildRequires: glslang-devel
+BuildRequires: vulkan-headers
 #FIXME
 BuildRequires: %{_lib}XNVCtrl-devel
 BuildRequires: pkgconfig(dbus-1)
 BuildRequires: pkgconfig(gl)
 BuildRequires: pkgconfig(dri)
+BuildRequires: pkgconfig(nlohmann_json)
 BuildRequires: pkgconfig(vulkan)
 BuildRequires: pkgconfig(wayland-client)
 BuildRequires: pkgconfig(x11)
