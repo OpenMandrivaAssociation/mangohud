@@ -46,6 +46,7 @@ BuildRequires: pkgconfig(nlohmann_json)
 BuildRequires: pkgconfig(vulkan)
 BuildRequires: pkgconfig(wayland-client)
 BuildRequires: pkgconfig(x11)
+BuildRequires: pkgconfig(spdlog)
 BuildRequires: python3dist(mako)
 
 Requires: vulkan-loader
@@ -86,13 +87,16 @@ Requires:	libvulkan1
 
 %meson32 \
 	-Dwith_x11=enabled \
-	-Dwith_wayland=enabled
+	-Dwith_wayland=enabled \
+	-Dtests=disabled
 %endif
 
 
 %meson \
 	-Dwith_x11=enabled \
-	-Dwith_wayland=enabled
+	-Dwith_wayland=enabled \
+	-Duse_system_spdlog=enabled \
+	-Dtests=disabled
 # error duplicate symbol dlsym if compiled with enabled	
 #	-Dwith_dlsym=enabled
 
