@@ -10,12 +10,15 @@
 
 Name:           mangohud
 Version:        0.6.9.1
-Release:        1
+Release:        2
 Summary:        A Vulkan and OpenGL overlay layer for monitoring FPS, temperatures, CPU/GPU load and more
 Group:          Tools/Monitiring/Overlay
 License:        MIT
 URL:            https://github.com/flightlessmango/MangoHud
 Source0:        https://github.com/flightlessmango/MangoHud/releases/download/v0.6.9-1/%{oname}-v0.6.9-1-Source.tar.xz
+
+# Fix for 32-bit apps in WINE/Proton
+Patch0:		https://github.com/flightlessmango/MangoHud/commit/5754ca13ee2cdf19a76b4fc79dd914a58d6371f5.patch
 
 %if %{with compat32}
 BuildRequires:	devel(libdbus-1)
