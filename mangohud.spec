@@ -39,6 +39,8 @@ BuildRequires: meson
 BuildRequires: glslang
 BuildRequires: glslang-devel
 BuildRequires: vulkan-headers
+BuildRequires: stdc++-devel
+BuildRequires: stdc++-static-devel
 #FIXME
 BuildRequires: %{_lib}XNVCtrl-devel
 BuildRequires: pkgconfig(dbus-1)
