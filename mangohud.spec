@@ -120,8 +120,10 @@ Requires:	libvulkan1
 %doc README.md LICENSE
 %{_datadir}/doc/mangohud/MangoHud.conf.example
 %{_bindir}/mangohud
+%{_bindir}/mangoplot
 %{_libdir}/mangohud/lib%{oname}.so
 %{_libdir}/mangohud/lib%{oname}_dlsym.so
+%{_libdir}/mangohud/libMangoHud_opengl.so
 %{_datadir}/vulkan/implicit_layer.d/*
 %{_datadir}/metainfo/io.github.flightlessmango.mangohud.metainfo.xml
 %{_mandir}/man1/mangohud.1.*
@@ -131,4 +133,5 @@ Requires:	libvulkan1
 %files -n %{lib32name}
 %{_prefix}/lib/mangohud/libMangoHud.so
 %{_prefix}/lib/mangohud/libMangoHud_dlsym.so
+%{_prefix}/lib/mangohud/libMangoHud_opengl.so
 %endif
