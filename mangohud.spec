@@ -31,6 +31,7 @@ BuildRequires:	devel(libwayland-server)
 BuildRequires:	devel(libvulkan)
 %endif
 
+BuildRequires: git
 BuildRequires: appstream
 BuildRequires: cmake
 BuildRequires: meson
