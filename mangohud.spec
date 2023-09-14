@@ -9,13 +9,13 @@
 %define oname   MangoHud
 
 Name:           mangohud
-Version:        0.6.9.1
-Release:        1
+Version:        0.7.0
+Release:        0.rc1.0
 Summary:        A Vulkan and OpenGL overlay layer for monitoring FPS, temperatures, CPU/GPU load and more
 Group:          Tools/Monitiring/Overlay
 License:        MIT
 URL:            https://github.com/flightlessmango/MangoHud
-Source0:        https://github.com/flightlessmango/MangoHud/releases/download/v0.6.9-1/%{oname}-v0.6.9-1-Source.tar.xz
+Source0:        https://github.com/flightlessmango/MangoHud/releases/download/v0.7.0-rc1/%{oname}-v0.7.0-rc1-Source.tar.xz
 
 %if %{with compat32}
 BuildRequires:	devel(libdbus-1)
@@ -29,14 +29,18 @@ BuildRequires:	devel(libX11)
 BuildRequires:	devel(libwayland-client)
 BuildRequires:	devel(libwayland-server)
 BuildRequires:	devel(libvulkan)
+BuildRequires:	libstdc++6
 %endif
 
+BuildRequires: git
 BuildRequires: appstream
 BuildRequires: cmake
 BuildRequires: meson
 BuildRequires: glslang
 BuildRequires: glslang-devel
 BuildRequires: vulkan-headers
+BuildRequires: stdc++-devel
+BuildRequires: stdc++-static-devel
 #FIXME
 BuildRequires: %{_lib}XNVCtrl-devel
 BuildRequires: pkgconfig(dbus-1)
@@ -116,8 +120,10 @@ Requires:	libvulkan1
 %doc README.md LICENSE
 %{_datadir}/doc/mangohud/MangoHud.conf.example
 %{_bindir}/mangohud
+%{_bindir}/mangoplot
 %{_libdir}/mangohud/lib%{oname}.so
 %{_libdir}/mangohud/lib%{oname}_dlsym.so
+%{_libdir}/mangohud/libMangoHud_opengl.so
 %{_datadir}/vulkan/implicit_layer.d/*
 %{_datadir}/metainfo/io.github.flightlessmango.mangohud.metainfo.xml
 %{_mandir}/man1/mangohud.1.*
@@ -127,4 +133,5 @@ Requires:	libvulkan1
 %files -n %{lib32name}
 %{_prefix}/lib/mangohud/libMangoHud.so
 %{_prefix}/lib/mangohud/libMangoHud_dlsym.so
+%{_prefix}/lib/mangohud/libMangoHud_opengl.so
 %endif
