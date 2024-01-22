@@ -10,7 +10,7 @@
 
 Name:           mangohud
 Version:        0.7.0
-Release:        1
+Release:        2
 Summary:        A Vulkan and OpenGL overlay layer for monitoring FPS, temperatures, CPU/GPU load and more
 Group:          Tools/Monitiring/Overlay
 License:        MIT
