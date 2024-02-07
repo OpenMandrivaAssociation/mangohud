@@ -9,13 +9,13 @@
 %define oname   MangoHud
 
 Name:           mangohud
-Version:        0.7.0
-Release:        2
+Version:        0.7.1
+Release:        1
 Summary:        A Vulkan and OpenGL overlay layer for monitoring FPS, temperatures, CPU/GPU load and more
 Group:          Tools/Monitiring/Overlay
 License:        MIT
 URL:            https://github.com/flightlessmango/MangoHud
-Source0:        https://github.com/flightlessmango/MangoHud/releases/download/v0.7.0/%{oname}-v0.7.0-Source.tar.xz
+Source0:        https://github.com/flightlessmango/MangoHud/releases/download/v0.7.1/%{oname}-v0.7.1-Source.tar.xz
 
 %if %{with compat32}
 BuildRequires:	devel(libdbus-1)
