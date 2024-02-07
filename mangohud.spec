@@ -118,6 +118,7 @@ Requires:	libvulkan1
 
 %files
 %doc README.md LICENSE
+%doc %{_datadir}/doc/mangohud/presets.conf.example
 %{_datadir}/doc/mangohud/MangoHud.conf.example
 %{_bindir}/mangohud
 %{_bindir}/mangoplot
