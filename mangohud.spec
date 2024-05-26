@@ -15,7 +15,7 @@ Summary:        A Vulkan and OpenGL overlay layer for monitoring FPS, temperatur
 Group:          Tools/Monitiring/Overlay
 License:        MIT
 URL:            https://github.com/flightlessmango/MangoHud
-Source0:        https://github.com/flightlessmango/MangoHud/releases/download/v0.7.1/%{oname}-v0.7.1-Source.tar.xz
+Source0:        https://github.com/flightlessmango/MangoHud/releases/download/v%{version}/%{oname}-v%{version}-Source.tar.xz
 
 %if %{with compat32}
 BuildRequires:	devel(libdbus-1)
