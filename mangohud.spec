@@ -29,6 +29,7 @@ BuildRequires:	devel(libX11)
 BuildRequires:	devel(libwayland-client)
 BuildRequires:	devel(libwayland-server)
 BuildRequires:	devel(libvulkan)
+BuildRequires:	devel(libxkbcommon-x11)
 BuildRequires:	libstdc++6
 %endif
 
