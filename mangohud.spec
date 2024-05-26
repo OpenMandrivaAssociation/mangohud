@@ -52,6 +52,7 @@ BuildRequires: pkgconfig(wayland-client)
 BuildRequires: pkgconfig(x11)
 BuildRequires: pkgconfig(spdlog)
 BuildRequires: python3dist(mako)
+BuildRequires: pkgconfig(xkbcommon-x11)
 
 Requires: vulkan-loader
 Requires: %{_lib}vulkan1
