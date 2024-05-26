@@ -29,6 +29,7 @@ BuildRequires:	devel(libX11)
 BuildRequires:	devel(libwayland-client)
 BuildRequires:	devel(libwayland-server)
 BuildRequires:	devel(libvulkan)
+BuildRequires:	devel(libxkbcommon)
 BuildRequires:	devel(libxkbcommon-x11)
 BuildRequires:	libstdc++6
 %endif
@@ -53,6 +54,7 @@ BuildRequires: pkgconfig(wayland-client)
 BuildRequires: pkgconfig(x11)
 BuildRequires: pkgconfig(spdlog)
 BuildRequires: python3dist(mako)
+BuildRequires: pkgconfig(xkbcommon)
 BuildRequires: pkgconfig(xkbcommon-x11)
 
 Requires: vulkan-loader
