@@ -81,7 +81,7 @@ Requires:	libvulkan1
 %endif
 
 %prep	
-%setup -n %{oname}-v%{version} -q
+%setup -n %{oname}-v0.7.1 -q
 #setup -n %{oname}-%{version} -q -D -T -a1
 #patch -p1
 #mv imgui-20200503/* modules/ImGui/src/
