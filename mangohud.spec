@@ -9,13 +9,13 @@
 %define oname   MangoHud
 
 Name:           mangohud
-Version:        0.7.1
-Release:        5
+Version:        0.8.0~rc2
+Release:        1
 Summary:        A Vulkan and OpenGL overlay layer for monitoring FPS, temperatures, CPU/GPU load and more
 Group:          Tools/Monitiring/Overlay
 License:        MIT
 URL:            https://github.com/flightlessmango/MangoHud
-Source0:        https://github.com/flightlessmango/MangoHud/releases/download/v0.7.1/%{oname}-v0.7.1-Source.tar.xz
+Source0:        https://github.com/flightlessmango/MangoHud/releases/download/v0.8.0-rc2/%{oname}-v0.8.0-rc2-Source.tar.xz
 
 %if %{with compat32}
 BuildRequires:	devel(libdbus-1)
@@ -29,6 +29,8 @@ BuildRequires:	devel(libX11)
 BuildRequires:	devel(libwayland-client)
 BuildRequires:	devel(libwayland-server)
 BuildRequires:	devel(libvulkan)
+BuildRequires:	devel(libxkbcommon)
+BuildRequires:	devel(libxkbcommon-x11)
 BuildRequires:	libstdc++6
 %endif
 
@@ -52,6 +54,8 @@ BuildRequires: pkgconfig(wayland-client)
 BuildRequires: pkgconfig(x11)
 BuildRequires: pkgconfig(spdlog)
 BuildRequires: python3dist(mako)
+BuildRequires: pkgconfig(xkbcommon)
+BuildRequires: pkgconfig(xkbcommon-x11)
 
 Requires: vulkan-loader
 Requires: %{_lib}vulkan1
@@ -81,7 +85,7 @@ Requires:	libvulkan1
 %endif
 
 %prep	
-%setup -n %{oname}-v%{version} -q
+%setup -n %{oname}-v0.8.0 -q
 #setup -n %{oname}-%{version} -q -D -T -a1
 #patch -p1
 #mv imgui-20200503/* modules/ImGui/src/
@@ -123,7 +127,7 @@ Requires:	libvulkan1
 %{_bindir}/mangohud
 %{_bindir}/mangoplot
 %{_libdir}/mangohud/lib%{oname}.so
-%{_libdir}/mangohud/lib%{oname}_dlsym.so
+%{_libdir}/mangohud/libMangoHud_shim.so
 %{_libdir}/mangohud/libMangoHud_opengl.so
 %{_datadir}/vulkan/implicit_layer.d/*
 %{_datadir}/metainfo/io.github.flightlessmango.mangohud.metainfo.xml
@@ -133,6 +137,6 @@ Requires:	libvulkan1
 %if %{with compat32}
 %files -n %{lib32name}
 %{_prefix}/lib/mangohud/libMangoHud.so
-%{_prefix}/lib/mangohud/libMangoHud_dlsym.so
+%{_prefix}/lib/mangohud/libMangoHud_shim.so
 %{_prefix}/lib/mangohud/libMangoHud_opengl.so
 %endif
