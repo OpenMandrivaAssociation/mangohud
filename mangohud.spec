@@ -1,8 +1,7 @@
-%ifarch %{x86_64}
-%bcond_without compat32
-%else
+# 32-bit meson dies with "cc cannot compile programs" on current
+# cooker (missing 32-bit toolchain pieces). 64-bit overlay is enough
+# for the fmt 12 rebuild; turn compat32 back on once meson32 works.
 %bcond_with compat32
-%endif
 
 %define lib32name libmangohud
 
