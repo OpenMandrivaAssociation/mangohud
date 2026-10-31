@@ -1,7 +1,7 @@
 # 32-bit meson dies with "cc cannot compile programs" on current
 # cooker (missing 32-bit toolchain pieces). 64-bit overlay is enough
 # for the fmt 12 rebuild; turn compat32 back on once meson32 works.
-%bcond_with compat32
+%bcond_without compat32
 
 %define lib32name libmangohud
 
@@ -9,7 +9,7 @@
 
 Name:           mangohud
 Version:        0.8.4
-Release:        3
+Release:        4
 Summary:        A Vulkan and OpenGL overlay layer for monitoring FPS, temperatures, CPU/GPU load and more
 Group:          Tools/Monitiring/Overlay
 License:        MIT
@@ -31,6 +31,11 @@ BuildRequires:	devel(libvulkan)
 BuildRequires:	devel(libxkbcommon)
 BuildRequires:	devel(libxkbcommon-x11)
 BuildRequires:	libstdc++6
+BuildRequires:	cross-i686-openmandriva-linux-gnu-binutils
+BuildRequires:	cross-i686-openmandriva-linux-gnu-libc
+BuildRequires:	cross-i686-openmandriva-linux-gnu-gcc
+BuildRequires:	cross-i686-openmandriva-linux-gnu-kernel-headers
+BuildRequires:	cross-i686-openmandriva-linux-gnu-clang
 %endif
 
 BuildRequires: git
